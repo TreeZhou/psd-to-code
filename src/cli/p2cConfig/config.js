@@ -1,0 +1,11 @@
+module.exports = {
+  renderTempPath: ['Temp.vue'], //渲染模板名， strind | string[]
+  outPath: './',
+  imgType: 'png',
+  absolute: '', //项目绝对路径，默认当前目录
+  imgPathPrefix: './image',
+  usePostcssAutoBg: true,
+  useAutoBgMacro: true,
+  prependVwFn: false,
+  reactType: 'styled'
+};
