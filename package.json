@@ -3,6 +3,11 @@
   "bin": {
     "p2c": "./bin/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TreeZhou/psd-to-code.git"
+  },
+  "author": "527533739@qq.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
