@@ -5,7 +5,8 @@
 ### 安装
 
 ```
-npm i psd2code-cli -g
+orz i @gz/psd2code-cli -g
+
 ```
 
 ## 用法

@@ -1,5 +1,5 @@
 {
-  "name": "psd2code-cli",
+  "name": "@gz/psd2code-cli",
   "bin": {
     "p2c": "./bin/index.js"
   },
