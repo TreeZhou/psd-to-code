@@ -23,7 +23,10 @@ $ p2c init
 $ p2c <psdPath>
 ```
 
-### 模板
+### 配置
+
+配置文件 `p2cConfig/config`;
+生成代码的模板`p2cConfig/Temp.vue`
 
 在模板文件中 可以能使用的 ejs 模板标签： `<%- variable %>`,
 variable:
