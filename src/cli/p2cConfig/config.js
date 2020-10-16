@@ -3,9 +3,9 @@ module.exports = {
   outPath: './',
   imgType: 'png',
   absolute: '', //项目绝对路径，默认当前目录
-  imgPathPrefix: './image',
-  usePostcssAutoBg: true,
+  imgPathPrefix: './image/',
+  usePostcssAutoBg: false,
   useAutoBgMacro: true,
-  prependVwFn: false,
+  prependVwFn: true,
   reactType: 'styled'
 };
