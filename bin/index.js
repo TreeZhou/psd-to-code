@@ -19,7 +19,7 @@ program
     const p2cConfigPath = path.join(process.cwd(), 'p2cConfig/config.js');
     // 调试阶段直接调用源码
     // var CodeGenerator = require('../src/cli/psd2code.js');
-    const name = require('../package.json').name;
+    const name = require('../package.json').name.replace('@gz/', '');
     var CodeGenerator = require('../dist/' + name)[name];
     CodeGenerator = CodeGenerator.default || CodeGenerator;
 
