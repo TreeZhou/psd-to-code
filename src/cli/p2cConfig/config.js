@@ -7,5 +7,6 @@ module.exports = {
   usePostcssAutoBg: false,
   useAutoBgMacro: true,
   prependVwFn: true,
+  vwBase:750,//vwFn的基础宽度
   reactType: 'styled'
 };
