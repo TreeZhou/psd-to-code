@@ -13,7 +13,6 @@ const treeToStyled = require('tree-to-code/lib/styled').default;
 const treeToJSX = require('tree-to-code/lib/jsx').default;
 const treeToWxml = require('tree-to-code/lib/wxml').default;
 const treeToWXSS = require('tree-to-code/lib/wxss').default;
-let _options = require('./p2cConfig/config.js');
 
 const codeRenderMap = {
   html: treeToHtml,
@@ -27,8 +26,9 @@ const codeRenderMap = {
 
 const getRenderTemp = tempFilePath => fs.readFileSync(tempFilePath).toString();
 
-async function dealOption(options) {
+function dealOption(options) {
   let { psdPath, cliRootPath, customConfig } = options;
+  let _options = JSON.parse(JSON.stringify(require('./p2cConfig/config.js')));
   if (customConfig) {
     Object.assign(_options, customConfig);
   } else {
@@ -62,9 +62,10 @@ async function dealOption(options) {
   });
   console.log(chalk.yellow('配置：'));
   console.log(_options);
+  return _options;
 }
 
-function getCode(treeExp, type) {
+function getCode(treeExp, type, _options) {
   const Entities = require('html-entities').XmlEntities;
   const entities = new Entities();
   let code = codeRenderMap[type](treeExp, {
@@ -81,11 +82,10 @@ function getCode(treeExp, type) {
 }
 
 const psd2code = async options => {
-  await dealOption(options);
+  const _options = dealOption(options);
   if (!fs.existsSync(_options.outPath)) fs.mkdirSync(_options.outPath);
 
   let { docTree } = await parsePsd(_options.psdPath);
-
   generatorImage({
     docTree,
     outPath: _options.outPath,
@@ -93,13 +93,13 @@ const psd2code = async options => {
   });
 
   const treeExp = docTree.export();
-  const html = getCode(treeExp, 'html');
-  const css = getCode(treeExp, 'css');
-  const scss = getCode(treeExp, 'scss');
-  const styledComponents = getCode(treeExp, 'styled-components');
-  const jsx = getCode(treeExp, 'jsx');
-  const wxml = getCode(treeExp, 'wxml');
-  const wxss = getCode(treeExp, 'wxss');
+  const html = getCode(treeExp, 'html', _options);
+  const css = getCode(treeExp, 'css', _options);
+  const scss = getCode(treeExp, 'scss', _options);
+  const styledComponents = getCode(treeExp, 'styled-components', _options);
+  const jsx = getCode(treeExp, 'jsx', _options);
+  const wxml = getCode(treeExp, 'wxml', _options);
+  const wxss = getCode(treeExp, 'wxss', _options);
 
   _options.renderTempPath.forEach(tempFilePath => {
     let tmp = ejs.render(getRenderTemp(tempFilePath), {
