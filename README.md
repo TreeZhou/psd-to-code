@@ -38,6 +38,8 @@ variable:
 - css
 - styledComponents
 - jsx
+- wxml
+- wxss
 - name 文件名
 
 #### example:
