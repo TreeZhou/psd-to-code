@@ -55,7 +55,7 @@ variable:
 
 ### psd 命名规则
 
-[示例文件](https://cdn2.h5no1.com/static-cdn/psd2code/psd2code.zip?v=1)
+见 `psd/psd2codePsd`
 
 #### 命名规范
 
