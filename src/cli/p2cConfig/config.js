@@ -9,5 +9,6 @@ module.exports = {
   useAutoBgMacro: true,
   prependVwFn: true,
   vwBase: 750, //vwFn的基础宽度
-  reactType: 'styled'
+  reactType: 'styled',
+  usePsdName: false //不使用psd的名字作为文件名，支持renderTempPath使用多文件
 };

@@ -130,8 +130,12 @@ const psd2code = async options => {
       endOfLine: 'auto'
     });
 
+    const fileName = _options.usePsdName
+      ? _options.name
+      : path.basename(tempFilePath).replace(path.extname(tempFilePath), '');
+
     fs.writeFileSync(
-      `${_options.outPath}/${_options.name}${path.extname(tempFilePath)}`,
+      `${_options.outPath}/${fileName}${path.extname(tempFilePath)}`,
       tmp
     );
   });
